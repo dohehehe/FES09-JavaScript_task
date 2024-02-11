@@ -1,6 +1,6 @@
 
 
-class AudioPlayer {
+export class AudioPlayer {
   #audio = null;
 
   constructor(source) {
@@ -10,6 +10,8 @@ class AudioPlayer {
 
     this.#audio = document.createElement('audio');
     this.#audio.src = source;
+
+    console.log(this.#audio.src);
   }
 
   play() {

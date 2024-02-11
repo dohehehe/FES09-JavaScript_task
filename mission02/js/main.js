@@ -11,6 +11,7 @@
 
 // 모듈 
 import {data} from './data.js'
+import {AudioPlayer} from './audio.js'
 
 
 const nav = getNode('.nav');
@@ -22,7 +23,6 @@ const nickName = getNode('h1');
 nav.addEventListener('click', handleNav);
 
 
-
 // 클릭 이벤트 함수
 function handleNav(e){
 
@@ -31,7 +31,7 @@ function handleNav(e){
   if(!target) return;
 
   const list = [...li];
-
+  
   list.forEach((li)=>{
     removeClass(li, 'is-active');
   })
@@ -40,10 +40,30 @@ function handleNav(e){
 
   const index = target.dataset.index;
 
+
+
   // 함수 실행
   setBgColor(index);
   setImage(target);
   setNameText(index);
+
+  // 첫번째 오디오 시도 함수 실행
+  // playAudio(index);
+
+
+  // (두번째 오디오 시도 _ 진행중) AudioPlayer 클래스를 통한 구현
+  // 다른 오디오가 진행 중일때 멈추고 새로 할당 받은 오디오 재생이 안됨
+
+      // let source = `./assets/audio/${data[index - 1].audio}`
+
+      // let audioPlayer = new AudioPlayer(source);
+
+      // console.log(audioPlayer.isPlaying());
+      // if(!audioPlayer.isPlaying()){
+      //   audioPlayer.pause();
+      // }
+
+      // audioPlayer.play();
 }
 
 
@@ -77,6 +97,21 @@ function handleNav(e){
 
 
 
+
+// (첫번째 오디오 시도 _ 성공) 오디오 플레이 함수 
+
+      // let currentAudio;
+      // function playAudio(index) {
+        
+      //     if (currentAudio) {
+      //         currentAudio.pause(); 
+      //     }
+
+      //     let audio = new Audio(`./assets/audio/${data[index - 1].audio}`);
+      //     audio.play();
+
+      //     currentAudio = audio; 
+      // }
 
 
 
